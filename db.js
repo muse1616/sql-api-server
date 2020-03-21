@@ -1,4 +1,4 @@
-// db.js 下
+// db.js
 const mysql = require('mysql')
 
 const pool = mysql.createPool({

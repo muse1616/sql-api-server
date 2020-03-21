@@ -2,36 +2,63 @@
 const db = require('../db');
 
 
-
+// 登录
 async function login(id, pwd, type) {
+
+    // 查询
     const result1 = await db.sqlQuery('select * from `user`.`' + type + '` where id= ? and pwd = ?', [id, pwd]);
+
+    // 账号正确
     if (result1.data.length > 0) {
+        // 删除密码 返回
+        delete result1.data[0].pwd
+        // 封装对象
+
         return {
-            "error": 0,
-            "msg": result1.data[0]
+            "status": 200,
+            "meta": {
+                "data": result1.data[0]
+            }
         };
     } else {
         return {
-            "error": -2,
-            "msg": "账号或密码错误"
+            "status": 201,
+            "meta": {
+                "data": null
+            }
         };
     }
+
 }
 
+
+// 修改密码
 async function changePwd(id, old_pwd, new_pwd, type) {
     // 判断密码正确
     const result1 = await db.sqlQuery('select * from `user`.`' + type + '` where id= ? and pwd = ?', [id, old_pwd]);
     if (result1.data.length == 0) {
-        return "密码或账号错误";
+        return {
+            'status': 201,
+            'data': '密码错误'
+        };
     } else {
         const r = await db.sqlQuery('update `user`.`' + type + '` set pwd = ? where id = ?', [new_pwd, id]);
         if (r.data.changedRows > 0) {
-            return "修改成功";
+            return {
+                'status': 200,
+                'data': '修改成功'
+            };;
         } else {
-            return "修改失败"
+            return {
+                'status': 400,
+                'data': '服务器错误'
+            };
         }
     }
 }
+
+
+
 
 async function root(id, name, pwd) {
     // 检验密码
