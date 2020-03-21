@@ -50,6 +50,16 @@ router.post('/changepwd', (req, res) => {
 })
 
 
+// 管理员权限
+router.post('/root/add', (req, res) => {
+    let {
+       form
+    } = req.body;
+
+    loginUserDao.root(form).then((data) => {
+        res.send(data);
+    })
+})
 
 // 导出模块
 module.exports = router
