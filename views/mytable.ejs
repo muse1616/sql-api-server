@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表管理</title>
+    <!-- js -->
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <!-- bootstrap.js -->
+    <script src="../static/vendor/js/bootstrap.bundle.min.js"></script>
+    <!-- 线形图js -->
+    <script src="../static/vendor/js/jquery.sparkline.min.js"></script>
+    <!-- 图标插件js -->
+    <script src="../static/vendor/js/jquery.flot.js"></script>
+    <!-- echarts.js -->
+    <script src="../static/vendor/js/echarts.js"></script>
+    <!-- Charts Plugin -->
+    <script src="../static/vendor/js/Chart.bundle.js"></script>
+    <script src="../static/vendor/js/utils.js"></script>
+    <!-- peitychart -->
+    <script src="../static/vendor/js/jquery.peity.min.js"></script>
+    <script src="../static/vendor/js/peitychart.init.js"></script>
+    <!--Horizontal-menu Js-->
+    <script src="../static/vendor/js/webslidemenu.js"></script>
+    <!-- Custom scroll bar Js-->
+    <script src="../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/vendor/js/selectize.min.js"></script>
+    <script src="../static/vendor/js/jquery.tablesorter.min.js"></script>
+    <script src="../static/vendor/js/circle-progress.min.js"></script>
+    <script src="../static/vendor/js/jquery.rating-stars.js"></script>
+    <script src="../static/vendor/js/jquery.flot.js"></script>
+    <script src="../static/vendor/js/jquery.flot.fillbetween.js"></script>
+    <script src="../static/vendor/js/jquery.flot.pie.js"></script>
+    <script src="../static/vendor/js/othercharts.js"></script>
+    <script src="../static/vendor/js/jquery.knob.js"></script>
+    <script src="../static/vendor/js/amcharts.js"></script>
+    <script src="../static/vendor/js/serial.js"></script>
+    <script src="../static/vendor/js/peitychart.init.js"></script>
+    <script src="../static/vendor/js/webslidemenu.js"></script>
+    <script src="../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/vendor/js/custom.js"></script>
+    <script src="../static/vendor/js/d3.v5.min.js"></script>
+    <script src="../static/vendor/js/c3-chart.js"></script>
+
+    <script src="../static/vendor/js/sample.js"></script>
+    <script src="../static/vendor/js/notifIt.js"></script>
+
+    <script src="../static/vendor/js/jquery.dataTables.min.js"></script>
+    <script src="../static/vendor/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/fileinput.min.js"></script>
+
+    <!-- css-->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/dashboard.css" rel="stylesheet" />
+    <link href="../static/vendor/css/c3-chart.css" rel="stylesheet" />
+    <link href="../static/vendor/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../static/vendor/css/fade-down.css" rel="stylesheet" />
+    <link href="../static/vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="../static/vendor/css/morris.css" rel="stylesheet" />
+    <link href="../static/vendor/css/webslidemenu.css" rel="stylesheet" />
+    <link href="../static/vendor/css/plugin.css" rel="stylesheet" />
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/css/fileinput.min.css" media="all"
+        rel="stylesheet" type="text/css" />
+
+
+    <!-- notify -->
+    <link href="../static/vendor/css/jquery.growl.css" rel="stylesheet" />
+    <link href="../static/vendor/css/notifIt.css" rel="stylesheet" />
+    <script src="../static//js/mytable.js"></script>
+    <script>
+        var id = '<%=id%>';
+    </script>
+
+
+</head>
+
+
+<body>
+    <div class="page-main">
+
+        <!-- 顶部信息 -->
+        <div class="app-header header py-1 d-flex">
+            <div class="container">
+                <div class="d-flex" style="float: left;">
+                    <!-- 左上角图标 -->
+                    <a class="header-brand" href="#">
+                        <img style="margin-right: 2px" height="30px" width="30px" src="../static/images/db.jpg">
+                        在线MySQL
+                    </a>
+                </div>
+                <div style="padding-top: 10px;padding-left: 100px;float: right;">
+                    <span class="page-title" style="font-size: 15px;">
+                        <img style="margin-right: 10px" height="25px" width="25px" src="../static/images/zhanghao.png">
+                        <span><%=id%></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--/ 顶部信息 -->
+
+
+
+        <!--水平导航栏-->
+        <div class="horizontal-main clearfix">
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list">
+
+                        <!-- 首页 -->
+
+
+
+
+                        <!-- 实验-->
+                        <li aria-haspopup="true"><a href="/teacherhome" class="sub-icon "><i
+                                    class="fa fa-pie-chart"></i>我的实验</a>
+                        </li>
+                        <!-- 库表 -->
+                        <li aria-haspopup="true"><a href="/teacher/table" class="sub-icon active"><i
+                                    class="fa fa-newspaper-o"></i>我的库表
+                            </a>
+
+                        </li>
+
+                        <!-- 成绩-->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-pie-chart"></i>成绩分析</a>
+                            <ul class="sub-menu" id="">
+
+                            </ul>
+                        </li>
+
+                        <!-- 班级管理-->
+                        <li aria-haspopup="true"><a href="/teacher/class" class="sub-icon"><i class="fa fa-pie-chart"></i>班级管理</a>
+                            <ul class="sub-menu" id="">
+
+                            </ul>
+                        </li>
+                        <!--导出成绩-->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-pie-chart"></i>导出成绩</a>
+                            <ul class="sub-menu" id="">
+
+                            </ul>
+                        </li>
+
+
+                        <!-- 其他 -->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-question-circle"></i>帮助 &
+                                账号管理<i class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu">
+                                <li aria-haspopup="true"><a href="/help">使用帮助</a></li>
+                                <li aria-haspopup="true"><a href="/changepwd">修改密码</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!--/水平导航栏-->
+
+        <!-- 信息区域 -->
+        <div class="content-area">
+            <div class="container">
+                <div class="page-header">
+                    <h4 class="page-title">
+                        信息
+                    </h4>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header ">
+                                <h3 class="card-title">库表</h3>
+
+
+                            </div>
+                            <div class="table-responsive text-center">
+                                <table class="table table-hover card-table  table-vcenter table-outline text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">表名</th>
+                                            <th scope="col">创建时间</th>
+                                            <th scope="col">关联实验数</th>
+                                            <th scope="col">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_list">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="btn-group mt-2 mb-2">
+                            <button type="button" class="btn btn-outline-light">选择表</button>
+                            <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">
+
+                            </button>
+                            <ul class="dropdown-menu" role="menu" id="tab">
+                                    
+
+                            </ul>
+                        </div>
+                        <h3 class="card-title" style="margin-left: 50px;">当前表名: <span id="currentName"></span></h3>
+                    </div>
+
+
+
+
+
+
+                    <div class="card-body">
+
+                        <div class="media media-lg">
+                            <div class="media-body" id="table_content">
+                                <h3 class="media-heading">表的描述</h3>
+
+                                
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="row row-deck">
+
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h3 class="card-title">使用脚本文件创建表</h3>
+                            </div>
+                            <div class="form-group" style="margin:0 auto; width: 80%;margin-top: 10px;">
+                                <input type="text" class="form-control" name="input" placeholder="输入表名" id="script_name">
+                            </div>
+                            <div class="form-group" style="margin:0 auto; width: 80%;margin-top: 10px;">
+                                <textarea type="text" class="form-control" name="input" spellcheck="false" rows="3"
+                                    placeholder="输入表的描述" id="script_describe"></textarea>
+                            </div>
+                            <div style="margin-left: 10px;margin-top: 30px">
+                                <input type="file" onchange="scriptChoose()" accept=".sql" style="display: none;"
+                                    id='inputFile'>
+                                <button onclick="inputButtob()" class='btn btn-outline-light'
+                                    style="display: block;margin: 0 auto;"><i class="fa fa-edit"></i>选择SQL脚本文件</button>
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;margin:0 auto; width: 80%;">
+                                <textarea type="text" class="form-control" name="input" spellcheck="false" rows="13"
+                                    placeholder="文件预览" id="script_sql_content"></textarea>
+                                    <div style="float: right;">
+                                <a onclick="uploadScript()" class='btn btn-outline-success'><i
+                                        class="fa fa-check"></i>创建</a>
+                                <a onclick="clearScript()" class='btn btn-outline-danger'><i
+                                        class="fa fa-trash"></i>清除</a></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">UI界面创建</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <div id="echart2" class="chartsh chart-dropshadow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /成绩走向 -->
+
+
+
+
+
+
+
+
+                    <!-- 底部
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center"></div>
+                        </div>
+                    </div>
+                </footer> -->
+                    <!--/底部-->
+
+                    <!--/底部-->
+                </div>
+            </div>
+        </div>
+        <!-- 回到最上方 -->
+        <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+</body>
+
+</html>

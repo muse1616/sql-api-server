@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生页</title>
+
+
+    <!-- js -->
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <!-- bootstrap.js -->
+    <script src="static/vendor/js/bootstrap.bundle.min.js"></script>
+    <!-- 线形图js -->
+    <script src="static/vendor/js/jquery.sparkline.min.js"></script>
+    <!-- 图标插件js -->
+    <script src="static/vendor/js/jquery.flot.js"></script>
+    <!-- echarts.js -->
+    <script src="static/vendor/js/echarts.js"></script>
+    <!-- Charts Plugin -->
+    <script src="static/vendor/js/Chart.bundle.js"></script>
+    <script src="static/vendor/js/utils.js"></script>
+    <!-- peitychart -->
+    <script src="static/vendor/js/jquery.peity.min.js"></script>
+    <script src="static/vendor/js/peitychart.init.js"></script>
+    <!--Horizontal-menu Js-->
+    <script src="static/vendor/js/webslidemenu.js"></script>
+    <!-- Custom scroll bar Js-->
+    <script src="static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/vendor/js/selectize.min.js"></script>
+    <script src="static/vendor/js/jquery.tablesorter.min.js"></script>
+    <script src="static/vendor/js/circle-progress.min.js"></script>
+    <script src="static/vendor/js/jquery.rating-stars.js"></script>
+    <script src="static/vendor/js/jquery.flot.js"></script>
+    <script src="static/vendor/js/jquery.flot.fillbetween.js"></script>
+    <script src="static/vendor/js/jquery.flot.pie.js"></script>
+    <script src="static/vendor/js/othercharts.js"></script>
+    <script src="static/vendor/js/jquery.knob.js"></script>
+    <script src="static/vendor/js/amcharts.js"></script>
+    <script src="static/vendor/js/serial.js"></script>
+    <script src="static/vendor/js/peitychart.init.js"></script>
+    <script src="static/vendor/js/webslidemenu.js"></script>
+    <script src="static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/vendor/js/custom.js"></script>
+    <script src="static/vendor/js/d3.v5.min.js"></script>
+    <script src="static/vendor/js/c3-chart.js"></script>
+
+
+
+
+    <!-- css-->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/dashboard.css" rel="stylesheet" />
+    <link href="static/vendor/css/c3-chart.css" rel="stylesheet" />
+    <link href="static/vendor/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="static/vendor/css/fade-down.css" rel="stylesheet" />
+    <link href="static/vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="static/vendor/css/morris.css" rel="stylesheet" />
+    <link href="static/vendor/css/webslidemenu.css" rel="stylesheet" />
+    <link href="static/vendor/css/plugin.css" rel="stylesheet" />
+
+    <!-- notify -->
+    <link href="static/vendor/css/jquery.growl.css" rel="stylesheet" />
+    <link href="static/vendor/css/notifIt.css" rel="stylesheet" />
+    <script src="static/vendor/js/sample.js"></script>
+    <script src="static/vendor/js/notifIt.js"></script>
+    <!-- 获取学生信息 -->
+    <script>
+        var id = '<%=id%>';
+        var name = '<%=name%>';
+        var class_id = '<%=class_id%>';
+        var teacher_id = '<%=teacher_id%>';
+    </script>
+
+
+    <script src="static/js/s_homeinfo.js"></script>
+</head>
+
+<body>
+    <div class="page-main">
+
+        <!-- 顶部信息 -->
+        <div class="app-header header py-1 d-flex">
+            <div class="container">
+                <div class="d-flex" style="float: left;">
+                    <!-- 左上角图标 -->
+                    <a class="header-brand" href="#">
+                        <img style="margin-right: 2px" height="30px" width="30px" src="static/images/db.jpg">
+                        在线MySQL
+                    </a>
+                </div>
+                <div style="padding-top: 10px;padding-left: 100px;float: right;">
+                    <span class="page-title" style="font-size: 15px;">
+                        <img style="margin-right: 10px" height="25px" width="25px" src="static/images/zhanghao.png">
+                        <span><%=name%></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!--/ 顶部信息 -->
+
+
+
+        <!--水平导航栏-->
+        <div class="horizontal-main clearfix">
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list">
+
+                        <!-- 首页 -->
+                        <li aria-haspopup="true"><a class="sub-icon active"><i class="fa fa-desktop"></i>首页<i
+                                    class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu">
+                                <li aria-haspopup="true"><a href="/studenthome">首页</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- 测试 -->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-newspaper-o"></i>测试<i
+                                    class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu" id="myTest">
+
+                            </ul>
+                        </li>
+
+                        <!-- 成绩 -->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-pie-chart"></i>成绩<i
+                                    class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu" id="myGrade">
+
+                            </ul>
+                        </li>
+
+
+                        <!-- 其他 -->
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-question-circle"></i>帮助 &
+                                账号管理<i class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu">
+                                <li aria-haspopup="true"><a href="/help">使用帮助</a></li>
+                                <li aria-haspopup="true"><a href="/changepwd">修改密码</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!--/水平导航栏-->
+
+        <!-- 信息区域 -->
+        <div class="content-area">
+            <div class="container">
+                <div class="page-header">
+                    <h4 class="page-title">信息</h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">
+                                <img id="freshButton" title="刷新" width="30px" height="30px"
+                                    src="static/images/fresh.jpg">
+                            </a></li>
+                    </ol>
+                </div>
+
+                <!-- charts -->
+                <div class="row row-cards">
+
+                    <!-- 可见测试 -->
+                    <div class="col-sm-12 col-lg-6 col-md-6 col-xl-3 ">
+                        <div class="card card-img-holder">
+                            <div class="card-body">
+                                <p class="card-text text-muted font-weight-semibold mb-1">可见测试</p>
+                                <div class="clearfix">
+                                    <div class="float-left  mt-2">
+                                        <h1 id="visible_count">0</h1>
+                                    </div>
+                                    <div class="float-right text-right">
+                                        <span class="pie" data-peity='{ "fill": ["#ff685c", "#271e1f"]}'
+                                            id="visible_chart">0,0</span>
+                                    </div>
+
+                                </div>
+                                <div class="progress progress-md mt-1 h-2">
+                                    <!-- w值为进度条比例 -->
+                                    <div class="progress-bar  bg-gradient-primary" id="visible_progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- 完成chart -->
+                    <div class="col-sm-12 col-lg-6 col-md-6 col-xl-3">
+                        <div class="card card-img-holder">
+                            <div class="card-body">
+                                <p class="card-text text-muted font-weight-semibold mb-1">已完成</p>
+                                <div class="clearfix">
+                                    <div class="float-left  mt-2">
+                                        <h1 id="completed_count">3</h1>
+                                    </div>
+                                    <div class="float-right text-right">
+                                        <span id="completed_chart" class="pie"
+                                            data-peity='{ "fill": ["#32cafe", "#271e1f"]}'>0,0</span>
+                                    </div>
+                                </div>
+                                <div class="progress progress-md mt-1 h-2">
+                                    <div class="progress-bar  bg-gradient-secondary" id="completed_progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /完成chart -->
+
+
+
+                    <!-- 通过测试 -->
+                    <div class="col-sm-12 col-lg-6 col-md-6 col-xl-3">
+                        <div class="card card-img-holder">
+                            <div class="card-body">
+                                <p class="card-text text-muted font-weight-semibold mb-1">通过测试</p>
+                                <div class="clearfix">
+                                    <div class="float-left  mt-2">
+                                        <h1 id="pass_count">2</h1>
+                                    </div>
+                                    <div class="float-right text-right">
+                                        <span id="pass_chart" class="pie"
+                                            data-peity='{ "fill": ["#5ed84f", "#271e1f"]}'>0,0</span>
+                                    </div>
+                                </div>
+                                <div class="progress progress-md mt-1 h-2">
+                                    <div class="progress-bar bg-gradient-success" id="pass_progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /通过测试 -->
+
+
+                    <!-- 未及格 -->
+                    <div class="col-sm-12 col-lg-6 col-md-6 col-xl-3">
+                        <div class="card card-img-holder">
+                            <div class="card-body">
+                                <p class="card-text text-muted font-weight-semibold mb-1">未及格</p>
+                                <div class="clearfix">
+                                    <div class="float-left  mt-2">
+                                        <h1 id="fail_count">1</h1>
+                                    </div>
+                                    <div class="float-right text-right">
+                                        <span id="fail_cart" class="pie"
+                                            data-peity='{ "fill": ["#fdb901", "#271e1f"]}'>0,0</span>
+                                    </div>
+                                </div>
+                                <div class="progress progress-md mt-1 h-2">
+                                    <div class="progress-bar  bg-warning" id="fail_progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /未及格 -->
+                </div>
+
+
+                <!-- 第二行 -->
+                <div class="row row-deck">
+                    <!-- 测试时间 -->
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h3 class="card-title">测试时间(min)</h3>
+                            </div>
+
+                            <div class="card-body text-center">
+                                <div id="echart" class="chartsh chart-dropshadow "></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 成绩走向 -->
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h3 class="card-title">成绩走向 <span style="margin-left: 320px"><span
+                                            style="font-size: 12px;">我</span><span style="color: #ff685c;">---</span>
+                                        <span style="font-size: 12px;">平均</span><span
+                                            style="color: #32cafe;">---</span></span></h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <div id="echart2" class="chartsh chart-dropshadow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /成绩走向 -->
+
+                </div>
+                <!-- /第二行 -->
+
+
+                <!-- 第三行 -->
+                <!-- 即将过期的表格 -->
+                <div class="row ">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header ">
+                                <h3 class="card-title">即将过期</h3>
+
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover card-table table-vcenter table-outline text-nowrap">
+                                    <thead>
+                                        <tr align="center">
+                                            <th scope="col"></th>
+                                            <th scope="col">名称</th>
+                                            <th scope="col">截止日期</th>
+                                            <th scope="col">题目数</th>
+                                            <th scope="col">完成人数</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="upcomingExperimentTBody">
+                                        <!-- 每行一个测试 -->
+
+                                        <!-- /每行一个测试 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /第三行 -->
+
+
+                <!-- 第四行  显示测试成绩 根据测试动态增加-->
+                <div class="row row-deck" id="showGradeCard">
+
+
+
+
+
+                </div>
+                <!-- 第四行  显示测试成绩-->
+            </div>
+            <!-- /信息 -->
+
+
+
+
+
+            <!--底部-->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center"></div>
+                    </div>
+                </div>
+            </footer>
+            <!--/底部-->
+
+        </div>
+    </div>
+    </div>
+    <!-- 回到最上方 -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+</body>
+
+</html>

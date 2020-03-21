@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改密码</title>
+    <!-- css-->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/dashboard.css" rel="stylesheet" />
+    <link href="static/vendor/css/c3-chart.css" rel="stylesheet" />
+    <link href="static/vendor/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="static/vendor/css/fade-down.css" rel="stylesheet" />
+    <link href="static/vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="static/vendor/css/morris.css" rel="stylesheet" />
+    <link href="static/vendor/css/webslidemenu.css" rel="stylesheet" />
+    <link href="static/vendor/css/plugin.css" rel="stylesheet" />
+    <!-- notify -->
+    <link href="static/vendor/css/jquery.growl.css" rel="stylesheet" />
+    <link href="static/vendor/css/notifIt.css" rel="stylesheet" />
+    <script src="static/vendor/js/sample.js"></script>
+    <script src="static/vendor/js/notifIt.js"></script>
+
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="static/js/changepwd.js"></script>
+
+
+</head>
+
+<body style="background-color:#0f0506">
+    <div class="page">
+        <div class="page-content">
+            <div class="container text-center ">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <div class="card-group mb-0">
+                            <div class="card p-4">
+                                <div class="card-body">
+                                    <h1 style="text-align: center;">重置密码</h1>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" class="form-control" placeholder="学号/工号" id="id">
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                        <input type="password" class="form-control" placeholder="旧密码" id="old_pwd">
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                        <input type="password" class="form-control" placeholder="新密码" id="new_pwd">
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                        <input type="password" class="form-control" placeholder="确认密码" id="confirm_pwd">
+                                    </div>
+
+
+                                    <select class="form-control" id='type'>
+                                        <option value="student">学生</option>
+                                        <option value="teacher">教师</option>
+                                    </select>
+                                    <div style="display: none;" id='login_error_ingo'></div>
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-12">
+                                            <button type="button" class="btn btn-outline-light btn-block"
+                                                onclick='changePWD()'>确认修改</button>
+                                        </div>
+                                        <div class="col-12" style="margin-top: 20px;">
+                                            <a href="/"><button type="button"
+                                                    class="btn btn-outline-light btn-block">返回登录</button>
+                                            </a></div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

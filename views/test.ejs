@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试界面</title>
+
+    <!-- js -->
+    <script src="../../static/js/jquery-3.2.1.min.js"></script>
+
+
+    <!-- css-->
+    <link href="../../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/css/dashboard.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/c3-chart.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/fade-down.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/morris.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/webslidemenu.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/plugin.css" rel="stylesheet" />
+
+
+    <!-- js -->
+    <script src="../../static/js/jquery-3.2.1.min.js"></script>
+    <!-- bootstrap.js -->
+    <script src="../../static/vendor/js/bootstrap.bundle.min.js"></script>
+    <!-- 线形图js -->
+    <script src="../../static/vendor/js/jquery.sparkline.min.js"></script>
+    <!-- 图标插件js -->
+    <script src="../../static/vendor/js/jquery.flot.js"></script>
+    <!-- echarts.js -->
+    <script src="../../static/vendor/js/echarts.js"></script>
+    <!-- Charts Plugin -->
+    <script src="../../static/vendor/js/Chart.bundle.js"></script>
+    <script src="../../static/vendor/js/utils.js"></script>
+    <!-- peitychart -->
+    <script src="../../static/vendor/js/jquery.peity.min.js"></script>
+    <script src="../../static/vendor/js/peitychart.init.js"></script>
+    <!--Horizontal-menu Js-->
+    <script src="../../static/vendor/js/webslidemenu.js"></script>
+    <!-- Custom scroll bar Js-->
+    <script src="../../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../static/vendor/js/selectize.min.js"></script>
+    <script src="../../static/vendor/js/jquery.tablesorter.min.js"></script>
+    <script src="../../static/vendor/js/circle-progress.min.js"></script>
+    <script src="../../static/vendor/js/jquery.rating-stars.js"></script>
+    <script src="../../static/vendor/js/jquery.flot.js"></script>
+    <script src="../../static/vendor/js/jquery.flot.fillbetween.js"></script>
+    <script src="../../static/vendor/js/jquery.flot.pie.js"></script>
+    <script src="../../static/vendor/js/othercharts.js"></script>
+    <script src="../../static/vendor/js/jquery.knob.js"></script>
+    <script src="../../static/vendor/js/amcharts.js"></script>
+    <script src="../../static/vendor/js/serial.js"></script>
+    <script src="../../static/vendor/js/peitychart.init.js"></script>
+    <script src="../../static/vendor/js/webslidemenu.js"></script>
+    <script src="../../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../static/vendor/js/custom.js"></script>
+    <script src="../../static/vendor/js/d3.v5.min.js"></script>
+    <script src="../../static/vendor/js/c3-chart.js"></script>
+
+    <script src="../../static/vendor/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/vendor/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="../../static/vendor/js/jquery.missofis-countdown.js"></script>
+    <script src="../../static/vendor/js/counter.js"></script>
+    <script src="../../static//js/auto-line-number.js"></script>
+    <script src="../../static//js/s_test.js"></script>
+    <!-- notify -->
+    <link href="../../static/vendor/css/jquery.growl.css" rel="stylesheet" />
+    <link href="../../static/vendor/css/notifIt.css" rel="stylesheet" />
+    <script src="../../static/vendor/js/sample.js"></script>
+    <script src="../../static/vendor/js/notifIt.js"></script>
+    <script>
+        var id = '<%=id%>';
+        var testname = '<%=testname%>'
+        var teacher_id = '<%=teacherid%>';
+    </script>
+
+</head>
+
+<body onbeforeunload="checkleave()" onunload="leave()">
+    <div class="page">
+        <div class="page-main">
+
+            <!-- 顶部信息 -->
+            <div class="app-header header py-1 d-flex">
+                <div class="container">
+                    <div class="d-flex" style="float: left;">
+                        <!-- 左上角图标 -->
+                        <a class="header-brand">
+                            <img style="margin-right: 2px" height="30px" width="30px" src="../../static/images/db.jpg">
+                            在线MySQL
+                        </a>
+                    </div>
+                    <div style="padding-top: 10px;padding-left: 100px;float: right;">
+                        <span class="page-title" style="font-size: 15px;">
+                            <img style="margin-right: 10px" height="25px" width="25px"
+                                src="../../static/images/zhanghao.png">
+                            <span><%=id%></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--/ 顶部信息 -->
+            <!-- 信息区域 -->
+            <div class="content-area">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title"><%=testname%>
+                                    </h3>
+                                    <span id="timer-countup" class="h-3 text-white" style="margin-left: 85%;"></span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="jumbotron"
+                                            style="color:black;background-color:  #fffffe;width:55%;min-height:400px">
+                                            <span class="my-6"
+                                                style="font-size: 14px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp完成以下sql语句,向下滑动滚轮可以查看当前实验管理的表库。右侧输入sql语句
+                                                ,可以使用实验自动创建的临时表进行语句测试,注意前后操作之前的相互影响，
+                                                使用重置按钮可以刷新使用的表。</span>
+                                            <hr class="my-4">
+                                            <!--隐藏div 记录当前题号-->
+                                            <input hidden readonly>
+                                            <div id="problem_div">
+
+                                            </div>
+
+
+
+
+                                            <div style="margin-top: 100px">
+                                                <button class="btn btn-white" style="margin-left:20%" onclick="lastP()">
+                                                    < 上一题</button> <span id="p_id_show" style="margin-left: 10%">
+                                                        1</span><span> / </span><span id="allPShow"
+                                                            style="margin-right: 10%"></span>
+                                                        <button class="btn btn-white" onclick="nextP()"
+                                                            style="margin-right:20%">下一题 ></button>
+                                            </div>
+                                            <button type="button" class="btn btn-success" id="upButton" onclick="up()"
+                                                style="display: none;margin: 100px auto 0;"><i
+                                                    class="fe fe-check mr-2"></i>提交</button>
+
+
+                                        </div>
+                                        <div class="jumbotron"
+                                            style=" color:black;background-color: #fffffe;width:44%;margin-left:10px">
+                                            <span>SQL语句</span>
+                                            <textarea spellcheck="false" class="form-control" id="textarea"
+                                                style="color: black;font-weight: bold;width: 100%;background-color: #fffffe;border: none;overflow: hidden"
+                                                rows="10">
+
+                                        </textarea>
+                                            <div class="col-md-10 col-lg-12">
+
+                                                <style>
+                                                    #aa,
+                                                    #aa tr th,
+                                                    #aa tr td {
+                                                        border: 1px solid #0094ff;
+                                                        text-align: center;
+                                                    }
+                                                </style>
+                                                <span style="font-size: 13px;">运行结果</span>
+                                                <div class="card"
+                                                    style="min-height: 200px;width:100%;background-color: white;border-style: solid;border-color: rgba(224,224,224,0.5)">
+                                                    <div id="result_div">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <button type="button" class="btn btn-outline-info " style="float: left;"
+                                                onclick="renewTables()"><i class="fe fe-refresh-ccw"> 刷新表库</i></button>
+                                            <button type="button" style="float: right;" class="btn btn-outline-dark"
+                                                onclick="runSQL()"><i class="fe fe-upload mr-2"></i>执行代码
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="card text-white">
+                        <div class="card-header">
+                            <h3 class="card-title">关联库表</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
+                                        class="fe fe-chevron-up text-white"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="panel panel-primary">
+                                <div class="tab-menu-heading">
+                                    <div class="tabs-menu1">
+                                        <!-- Tabs -->
+                                        <ul class="nav panel-tabs" id="tab-div">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-body tabs-menu-body">
+                                    <div class="tab-content" id="tab-content">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /信息 -->
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到最上方 -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=testname%></title>
+
+    <!-- js -->
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <!-- bootstrap.js -->
+    <script src="../static/vendor/js/bootstrap.bundle.min.js"></script>
+    <!-- 线形图js -->
+    <script src="../static/vendor/js/jquery.sparkline.min.js"></script>
+    <!-- 图标插件js -->
+    <script src="../static/vendor/js/jquery.flot.js"></script>
+    <!-- echarts.js -->
+    <script src="../static/vendor/js/echarts.js"></script>
+    <!-- Charts Plugin -->
+    <script src="../static/vendor/js/Chart.bundle.js"></script>
+    <script src="../static/vendor/js/utils.js"></script>
+    <!-- peitychart -->
+    <script src="../static/vendor/js/jquery.peity.min.js"></script>
+    <script src="../static/vendor/js/peitychart.init.js"></script>
+    <!--Horizontal-menu Js-->
+    <script src="../static/vendor/js/webslidemenu.js"></script>
+    <!-- Custom scroll bar Js-->
+    <script src="../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/vendor/js/selectize.min.js"></script>
+    <script src="../static/vendor/js/jquery.tablesorter.min.js"></script>
+    <script src="../static/vendor/js/circle-progress.min.js"></script>
+    <script src="../static/vendor/js/jquery.rating-stars.js"></script>
+    <script src="../static/vendor/js/jquery.flot.js"></script>
+    <script src="../static/vendor/js/jquery.flot.fillbetween.js"></script>
+    <script src="../static/vendor/js/jquery.flot.pie.js"></script>
+    <script src="../static/vendor/js/othercharts.js"></script>
+    <script src="../static/vendor/js/jquery.knob.js"></script>
+    <script src="../static/vendor/js/amcharts.js"></script>
+    <script src="../static/vendor/js/serial.js"></script>
+    <script src="../static/vendor/js/peitychart.init.js"></script>
+    <script src="../static/vendor/js/webslidemenu.js"></script>
+    <script src="../static/vendor/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../static/vendor/js/custom.js"></script>
+    <script src="../static/vendor/js/d3.v5.min.js"></script>
+    <script src="../static/vendor/js/c3-chart.js"></script>
+
+
+    <script src="../static/js/s_myTest.js"></script>
+
+
+    <!-- css-->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/dashboard.css" rel="stylesheet" />
+    <link href="../static/vendor/css/c3-chart.css" rel="stylesheet" />
+    <link href="../static/vendor/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../static/vendor/css/fade-down.css" rel="stylesheet" />
+    <link href="../static/vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="../static/vendor/css/morris.css" rel="stylesheet" />
+    <link href="../static/vendor/css/webslidemenu.css" rel="stylesheet" />
+
+
+    <script>
+        var id = '<%=id%>';
+        var testname = '<%=testname%>'
+        var teacher_id = '<%=teacher_id%>';
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="page-main">
+
+            <!-- 顶部信息 -->
+            <div class="app-header header py-1 d-flex">
+                <div class="container">
+                    <div class="d-flex" style="float: left;">
+                        <!-- 左上角图标 -->
+                        <a class="header-brand" href="#">
+                            <img style="margin-right: 2px" height="30px" width="30px" src="../static/images/db.jpg">
+                            在线MySQL
+                        </a>
+                    </div>
+                    <div style="padding-top: 10px;padding-left: 100px;float: right;">
+                        <span class="page-title" style="font-size: 15px;">
+                            <img style="margin-right: 10px" height="25px" width="25px"
+                                src="../static/images/zhanghao.png">
+                            <span><%=id%></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--/ 顶部信息 -->
+
+
+            <!--水平导航栏-->
+            <div class="horizontal-main clearfix">
+                <div class="horizontal-mainwrapper container clearfix">
+                    <nav class="horizontalMenu clearfix">
+                        <ul class="horizontalMenu-list">
+
+                            <!-- 首页 -->
+                            <li aria-haspopup="true"><a href="#" class="sub-icon "><i
+                                        class="fa fa-desktop"></i>首页<i class="fa fa-angle-down horizontal-icon"></i></a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="/studenthome">首页</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- 测试 -->
+                            <li aria-haspopup="true"><a href="#" class="sub-icon active"><i class="fa fa-newspaper-o"></i>测试<i
+                                        class="fa fa-angle-down horizontal-icon"></i></a>
+                                <ul class="sub-menu" id="myTest">
+
+                                </ul>
+                            </li>
+
+                            <!-- 成绩 -->
+                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="fa fa-pie-chart"></i>成绩<i
+                                        class="fa fa-angle-down horizontal-icon"></i></a>
+                                <ul class="sub-menu" id="myGrade">
+                                </ul>
+                            </li>
+
+
+                            <!-- 其他 -->
+                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i
+                                        class="fa fa-question-circle"></i>帮助 &
+                                    账号管理<i class="fa fa-angle-down horizontal-icon"></i></a>
+                                <ul class="sub-menu">
+                                    <li aria-haspopup="true"><a href="/help">使用帮助</a></li>
+                                    <li aria-haspopup="true"><a href="/changepwd">修改密码</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--/水平导航栏-->
+
+            <!-- 信息区域 -->
+            <div class="content-area">
+                <div class="container">
+                    <div class="page-header">
+                        <h4 class="page-title">实验名:<%=testname%>
+                        </h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">
+                                    <img id="freshButton" title="刷新" width="30px" height="30px"
+                                        src="../static/images/fresh.jpg">
+                                </a></li>
+                        </ol>
+                    </div>
+
+
+                    <div class="row media-object-img">
+                        <div class="col-md-12 col-lg-12 ">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title" style="margin-left: 20px" id="s_mytest_isFinish"></h3>
+                                    <h3 class="card-title" style="margin-left: 50px" id="s_mytest_deadLine"></h3>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <!--实验目的-->
+                                        <div class="col-md-12 col-xl-4">
+                                            <div class="card text-white bg-gradient-primary">
+                                                <div class="card-header ">
+                                                    <h3 class="card-title ">实验目的:</h3>
+                                                    <div class="card-options">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up text-white"></i></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text" id="s_mytest_aim"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--实验描述-->
+                                        <div class="col-md-12 col-xl-4">
+                                            <div class="card text-white bg-gradient-secondary">
+                                                <div class="card-header ">
+                                                    <h3 class="card-title ">实验描述:</h3>
+                                                    <div class="card-options">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up text-white"></i></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text" id="s_mytest_describe"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--关联库表-->
+                                        <div class="col-md-12 col-xl-4">
+                                            <div class="card text-white bg-gradient-success">
+                                                <div class="card-header ">
+                                                    <h3 class="card-title ">关联库表:</h3>
+                                                    <div class="card-options">
+                                                        <a href="#" class="card-options-collapse"
+                                                            data-toggle="card-collapse"><i
+                                                                class="fe fe-chevron-up text-white"></i></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text" id="s_mytest_tables"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="display: block;margin: 100px auto 0;">
+                                            <span>共 </span><span id="s_mytest_problem_count"></span><span> 题 </span>
+                                            <button id="s_mytest_button" onclick="doTest('<%=testname%>')" type="button"
+                                                class="btn btn-success">开始作答<i
+                                                    class="fa fa-check fa-spin ml-2"></i></button>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /信息 -->
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到最上方 -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+</body>
+
+</html>
