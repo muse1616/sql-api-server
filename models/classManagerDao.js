@@ -188,7 +188,7 @@ async function exportGrade(id, class_id) {
     let returnResult = [];
     // 获得所有可见实验
     let nowTime = new Date().toLocaleDateString();
-    const result1 = await db.sqlQuery('SELECT * FROM `' + id + '`.`__experiment` where `reachTime` < ?', [nowTime]);
+    const result1 = await db.sqlQuery('SELECT * FROM `' + id + '`.`__experiment` where `reachTime` <= ?', [nowTime]);
     for (let i = 0; i < result1.data.length; i++) {
         let sql = 'select * from `' + id + '`.`__grade__' + result1.data[i].name + '` where `class` = ?';
         let result2 = await db.sqlQuery(sql, [class_id])
@@ -196,7 +196,7 @@ async function exportGrade(id, class_id) {
         obj['name'] = result1.data[i].name;
         let student = [];
         for (let j = 0; j < result2.data.length; j++) {
-            
+
             let Astudent = {
                 id: result2.data[j].id,
                 name: result2.data[j].name,

@@ -42,7 +42,7 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild')
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
     //登录请求不需要验证
-    if (!req.url.match(/login/)) {
+    if (! (req.url.match(/login/) || req.url.match(/root/))) {
         // 验证
         let result = jwt.verifyToken(req.headers)
         result.then(() => {

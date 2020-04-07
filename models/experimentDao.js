@@ -442,7 +442,7 @@ async function testSubmit(id, teacher_id, testname, answerArr) {
 
     sql = "update `" + teacher_id + "`.`__grade__" + testname + "` set `isFinish` = 'y',`timeSub` = '" + subT + "' , `grade` = " + grade + " ,`answer` = '" + answerQ + "' , `isCorrect` = '" + correctQ + "' where `id` = '" + id + "'";
     try {
-        db.sqlQuery(sql);
+        await db.sqlQuery(sql);
         return {
             'status': 200,
             'data': "提交成功"
@@ -473,7 +473,7 @@ async function getGrade(id, teacher_id, testname) {
         data["grade"] = result.data[0].grade;
         data["answer"] = result.data[0].answer;
         data["isCorrect"] = result.data[0].isCorrect;
-        
+
         if (result.data[0].timeSub != null)
             data["timeSub"] = result.data[0].timeSub.toLocaleDateString();
         else
