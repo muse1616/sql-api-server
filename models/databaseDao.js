@@ -12,8 +12,8 @@ async function getTableFromDatabase(id) {
     let tableArr = [];
     for (let table of result1.data) {
         // 过滤 开头有双下划线的为系统生成表 不进行返回
-        if (table.table_name.substr(0, 2) != "__") {
-            tableArr.push(table.table_name);
+        if (table.TABLE_NAME.substr(0, 2) != "__") {
+            tableArr.push(table.TABLE_NAME);
         }
     }
     return {
@@ -94,8 +94,8 @@ async function createTmpTable(teacher_id) {
     let tablesArr = [];
     for (let table of result1.data) {
         // 过滤 开头有双下划线的为系统生成表 不进行返回
-        if (table.table_name.substr(0, 2) != "__") {
-            tablesArr.push(table.table_name);
+        if (table.TABLE_NAME.substr(0, 2) != "__") {
+            tablesArr.push(table.TABLE_NAME);
         }
     }
 
@@ -140,8 +140,8 @@ async function runSql(teacher_id, sql) {
 
         for (let table of result1.data) {
             // 过滤 开头有双下划线的为系统生成表 不进行返回
-            if (table.table_name.substr(0, 2) != "__") {
-                tablesArr.push(table.table_name);
+            if (table.TABLE_NAME.substr(0, 2) != "__") {
+                tablesArr.push(table.TABLE_NAME);
             }
         }
 

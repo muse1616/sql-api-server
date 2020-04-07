@@ -3,6 +3,9 @@ function toSqlType(number) {
         case 3:
             return "int";
             break;
+        case 246:
+            return "decimal";
+            break;
         case 253:
             return "varchar";
             break;
@@ -23,6 +26,9 @@ function toSqlType(number) {
             break;
         case 254:
             return "char";
+            break;
+        case 12:
+            return "datetime";
             break;
         default:
             return "unknown";
